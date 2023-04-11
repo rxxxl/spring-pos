@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div>
+        <h1>Manage Products</h1>
+    </div>
+    <div class="mr-4">
+        <a class="h5" th:href="@{/products/new}">Add new product</a>
+    </div>
+    <div>
+
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Buy price</th>
+                <th>Sell price</th>
+                <th>Stock</th>
+                <th>Supplier</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="listProducts : ${listProducts}">
+                    <tr>
+                        <td>[[${listProducts.id}]]</td>
+                        <td>[[${listProducts.name}]]</td>
+                        <td>[[${listProducts.buyPrice}]]</td>
+                        <td>[[${listProducts.sellPrice}]]</td>
+                        <td>[[${listProducts.stock}]]</td>
+                        <td>[[${listProducts.supplier.name}]]</td>
+                        <td>
+                            <button class="h6 mr-3 btn btn-outline-info m-2" th:onclick="|window.location.href='/products/edit/'+${listProducts.id}|">Edit</button>
+                            <button class="h6 mr-3 btn btn-outline-danger m-2" th:onclick="|window.location.href='/products/delete/'+${listProducts.id}|">Delete</button>
+                        </td>
+                    </tr>
+
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

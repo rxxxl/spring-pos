@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My aplication</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container-fluid text-center">
+  <h1> POS</h1>
+    <a class="h2" th:href="@{/users}">Manage users</a><br>
+    <a class="h2" th:href="@{/suppliers}">Manage suppliers</a><br>
+    <a class="h2" th:href="@{/products}">Manage products</a><br>
+</div>
+
+</body>
+</html>

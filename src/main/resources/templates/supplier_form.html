@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid ">
+  <div class="text-center">
+    <h2>[[${pageTitle}]]</h2>
+  </div>
+      <form th:action="@{/suppliers/save}" method="post" th:object="${supplier}" style="max-width: 500px; margin: 0 auto;">
+          <input type="hidden" th:field="*{id}">
+          <div class="border border-secondary rounded p-3">
+              <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Name</label>
+                  <div class="col-sm-8">
+                      <label>
+                          <input type="text" th:field="*{name}" class="form-group" maxlength="50"/>
+                      </label>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Phone</label>
+                  <div class="col-sm-8">
+                      <label>
+                          <input type="text" th:field="*{phone}" class="form-group" required minlength="2" maxlength="45"/>
+                      </label>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">E-mail</label>
+                  <div class="col-sm-8">
+                      <label>
+                          <input type="email" th:field="*{email}" class="form-group" required minlength="8" maxlength="50"/>
+                      </label>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Address</label>
+                  <div class="col-sm-8">
+                      <label>
+                          <input type="text" th:field="*{address}" class="form-group" required minlength="2" maxlength="45"/>
+                      </label>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Status:</label>
+                  <div class="col-sm-8">
+                      <label>
+                          <input type="checkbox" th:field="*{status}"/>
+                      </label>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-primary m-2">Save</button>
+                  <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Cancel</button>
+              </div>
+          </div>
+      </form>
+    <script type="text/javascript">
+        function cancelForm(){
+            window.location = "[[@{/suppliers}]]";
+        }
+    </script>
+</div>
+</body>
+</html>
